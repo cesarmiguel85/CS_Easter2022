@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-img id="headlogo" src="assets/images/HEAD_LOGO.png"></ion-img>
+    </ion-buttons>
+    <ion-title>{{ mydata.allmessages.finish_title }}</ion-title>
+    <ion-buttons slot="end" (click)="exitPage()">
+      <ion-button>
+        {{ mydata.allmessages.finish_quit }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="containerflex">
+    <div id="container">
+
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size-lg="8" size-xs="12">
+
+
+            <ion-card>
+            
+              <ion-card-content>
+
+                <table style="width:100%">
+                  <tr>
+                    <td>
+                      <ion-img class="egg" src="assets/images/Easter-Egg-left2.png"></ion-img>
+                    </td>
+                    <td>
+                      <ion-card-title>{{ mydata.allmessages.finish_card_title }}</ion-card-title>
+                      {{ mydata.allmessages.finish_card_content }}
+                      
+                    </td>
+                    <td>
+                      <ion-img class="egg" src="assets/images/Easter-Egg-right2.png"></ion-img>
+                    </td>
+                  </tr>
+                </table>
+
+                <br>
+                      <img id="finishimg" src="assets/images/FINISH.png" alt="">
+
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{ mydata.allmessages.finish_cardcomment_title }}</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <p class="score">{{ mydata.allmessages.finish_cardcomment_content }} {{mytime_min}} min. {{mytime_sec}} sec.</p>
+                <p class="saving"><ion-item>
+                  <ion-textarea [(ngModel)]="mycomment"></ion-textarea>
+                  </ion-item>
+                </p>
+                <p class="saving"><ion-button (click)="sendFeedback()">{{mydata.allmessages.finish_cardcomment_button}} &nbsp;<ion-icon name="send-outline"></ion-icon></ion-button></p>
+              
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{ mydata.allmessages.finish_cardtime_title }}</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <p class="score">{{ mydata.allmessages.finish_cardtime_content }} {{mytime_min}} min. {{mytime_sec}} sec.</p>
+                <p class="saving"*ngIf="spinner && mydata.allvariables.with_db" ><ion-spinner name="bubbles"></ion-spinner> <span>{{ mydata.allmessages.finish_cardtime_saving }}</span></p>
+                <p class="saving" ><ion-button color="success" (click)="GoToRanking()">{{ mydata.allmessages.finish_ranking }}</ion-button></p>
+              
+              </ion-card-content>
+            </ion-card>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div id="margin" >
+        
+      </div>
+
+    </div>
+    <div id="footer"></div>
+  </div>
+
+</ion-content>
